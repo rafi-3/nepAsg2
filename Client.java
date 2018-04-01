@@ -14,7 +14,7 @@ public class Client {
 				{"How long is the Nile river? (in km)", "Colour of the sky?"},
 				{"6853", "blue"}
 		};
-	static int score;
+	int score= 0;
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -27,7 +27,7 @@ public class Client {
 				new DataOutputStream(socket.getOutputStream());
 		
 		for(int s = 10; s <50; s++) {
-			score++;
+//			score+=10;
 		}
 		
 		for(int i = 0; i < que.length; i++)	{
@@ -44,9 +44,6 @@ public class Client {
 					if(i == que.length) {
 						System.exit(0);
 					}else {
-						toServer.writeInt(score);
-						int score1 = fromServer.readInt();
-						System.out.println(score1);
 						System.out.println("Next question:");
 					}
 

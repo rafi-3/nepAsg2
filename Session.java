@@ -43,11 +43,13 @@ public class Session implements Runnable {
 					+ " is connected to " + client2Name + " (" + 
 					client2IP + ").");
 			
-//			int client1Score = fromClient1.readInt(score);
-//			int client2Score = fromClient2.readInt(score);
+//			int client1Score = fromClient1.readInt();
+//			int client2Score = fromClient2.readInt();
 //			fromClient1.readInt();
 //			fromClient2.readInt();
 			
+			int score1 = fromClient1.readInt();
+			int score2 = fromClient2.readInt();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
