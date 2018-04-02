@@ -16,7 +16,9 @@ public class Client {
 	static int score;
 	static String[][] que = 
 		{
+//				Add question here
 				{"How long is the Nile river? (in km)", "Colour of the sky?"},
+//			  	Add answer to here
 				{"6853", "blue"}
 		};
 	
@@ -50,22 +52,7 @@ public class Client {
 				public void run() {
 					while(chatActive) {
 						try {
-							if(fromServer.available() > 0) {
-								
-								String receivestScore = fromServer.readUTF();
-								
-								p2Score = Integer.parseInt(receivestScore);
-								System.out.println("\nYour Score:" + score);
-								System.out.println("\nOponent Score:" + p2Score);
-								
-								if(score <p2Score) {
-									System.out.println("\nYou Lose!");
-								} else if(score == p2Score) {
-									System.out.println("\nDraw!");
-								} else {
-									System.out.println("\nYou Win!");
-								}
-								
+							if(fromServer.available() > 0) {								
 								chatActive = fromServer.readBoolean();
 								}
 							} catch (IOException e) {
@@ -106,7 +93,7 @@ public class Client {
 					System.out.println("Final score is: " +score);
 //					System.out.println(newScore);
 					if(score > newScore) {
-						System.out.println(name +" you win to" + otherClientName);
+						System.out.println(name +" you win to " + otherClientName);
 					} if (score == newScore) {
 						System.out.println("Its a draw!");
 					} if (newScore > score) {
