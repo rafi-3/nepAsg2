@@ -44,38 +44,10 @@ public class ChatSession implements Runnable {
 					+ " is connected to " + client2Name + " (" + 
 					client2IP + ").");
 			
-//			while(true) {
-//				if(sentMsgToClient1 == false) {
-//					toClient2.writeUTF(client1Name + " (" + client1IP 
-//							+ ") has disconnected.");
-//					toClient2.writeBoolean(sentMsgToClient1);
-//					break;
-//				}
-//				if(sentMsgToClient2 == false) {
-//					toClient1.writeUTF(client2Name + " (" + client2IP 
-//							+ ") has disconnected.");
-//					toClient1.writeBoolean(sentMsgToClient2);
-//					break;
-//				}
-//				if(fromClient1.available() > 0) {
-//					String msg = fromClient1.readUTF();
-//					try {
-//						toClient2.writeUTF(msg);
-//						toClient2.writeBoolean(sentMsgToClient1);
-//					} catch (SocketException e) {
-//						sentMsgToClient2 = false;
-//					}
-//				}
-//				if(fromClient2.available() > 0) {
-//					String msg = fromClient2.readUTF();
-//					try {
-//						toClient1.writeUTF(msg);
-//						toClient1.writeBoolean(sentMsgToClient2);
-//					} catch (SocketException e) {
-//						sentMsgToClient1 = false;
-//					}
-//				}
-//			}
+			int p1s = fromClient1.readInt();
+			int p2s = fromClient2.readInt();
+			toClient1.writeInt(p2s);
+			toClient2.writeInt(p1s);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
