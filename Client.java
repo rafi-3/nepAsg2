@@ -25,7 +25,7 @@ public class Client {
 		
 		
 		try {
-			System.out.println("Hi! Welcome online quiz");
+			System.out.println("Hi! Welcome to online quiz");
 			System.out.println("Let's play the game!");
 			System.out.println("Please enter your name to begin... ");
 			String name = scanner.nextLine();
@@ -90,10 +90,12 @@ public class Client {
 								if(userin.equals(que[1][i])) {
 									System.out.println("correct!");
 									score = score+10;
+									System.out.println(name + " current score is " +score);
 									break;
 								} else {
 									System.out.println("wrong!");
 									score = score-10;
+									System.out.println(name + " current score is " +score);
 								}
 							}
 						}
@@ -101,14 +103,14 @@ public class Client {
 					
 					toServer.writeInt(score);
 					int newScore = fromServer.readInt();
-					System.out.println(score);
-					System.out.println(newScore);
+					System.out.println("Final score is: " +score);
+//					System.out.println(newScore);
 					if(score > newScore) {
-						System.out.println("You win");
+						System.out.println(name +" you win to" + otherClientName);
 					} if (score == newScore) {
 						System.out.println("Its a draw!");
 					} if (newScore > score) {
-						System.out.println("You lose");
+						System.out.println(name +" you lose to " + otherClientName);
 					}
 
 					break;
