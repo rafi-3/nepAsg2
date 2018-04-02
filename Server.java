@@ -8,6 +8,7 @@ import java.util.Date;
 public class Server {
 
 	public static void main(String[] args) {
+		
 		try {
 			ServerSocket serverSocket = new ServerSocket(9101);
 			System.out.println("Server started on " + new Date());
